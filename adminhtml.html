@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Management Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            width: 48%;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input, select {
+            width: calc(100% - 20px);
+            padding: 8px 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Management Dashboard</h1>
+    </header>
+    <main>
+        <!-- User Management Section -->
+        <div class="section" id="user-management">
+            <h2>Manage Users</h2>
+            <button onclick="listUsers()">List All Users</button>
+            <form id="add-user-form">
+                <h3>Add New User</h3>
+                <input type="text" id="employee_name" placeholder="Name" required />
+                <input type="text" id="employee_surname" placeholder="Surname" required />
+                <input type="email" id="employee_email" placeholder="Email" required />
+                <input type="text" id="employee_role" placeholder="Role" required />
+                <input type="number" id="employee_age" placeholder="Age" required />
+                <select id="employee_gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <button type="submit">Add User</button>
+            </form>
+            <div id="user-list">
+                <h3>Users</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Users will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Department Management Section -->
+        <div class="section" id="department-management">
+            <h2>Manage Departments</h2>
+            <button onclick="listDepartments()">List All Departments</button>
+            <form id="add-department-form">
+                <h3>Add New Department</h3>
+                <input type="text" id="department_name" placeholder="Department Name" required />
+                <button type="submit">Add Department</button>
+            </form>
+            <div id="department-list">
+                <h3>Departments</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Departments will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="app.js"></script>
+</html>
